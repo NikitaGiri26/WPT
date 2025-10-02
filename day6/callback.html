@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Live Timer</title>
+    <style>
+        body {
+            font-family: cursive;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #timer {
+            font-size: 2em;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Current Time</h2>
+    <div id="timer">--:--:--</div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById("timer").textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateTime, 1000);
+
+        updateTime();
+    </script>
+
+
+</body>
+
+</html>

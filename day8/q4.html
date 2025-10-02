@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quote Scroller</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #quoteContainer {
+      position: relative;
+      width: 100%;
+      height: 100px;
+      overflow: hidden;
+      background-color: #f0f8ff;
+      border: 2px solid #333;
+      font-family: 'Georgia', serif;
+      font-size: 24px;
+      color: #2c3e50;
+      padding: 20px;
+    }
+
+    #quote {
+      position: absolute;
+      white-space: nowrap;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="quoteContainer">
+    <div id="quote">“The only limit to our realization of tomorrow is our doubts of today.”</div>
+  </div>
+
+  <button id="startScroll">Start Scrolling</button>
+
+  <script>
+    $('#startScroll').on('click', function () {
+      const $quote = $('#quote');
+      const containerWidth = $('#quoteContainer').width();
+      const quoteWidth = $quote.width();
+      let count = 0;
+
+      function scrollRight() {
+        $quote.css({ left: 0 });
+        $quote.animate({ left: containerWidth - quoteWidth }, 1000, function () {
+          count++;
+          if (count < 4) {
+            scrollRight();
+          } else {
+            scrollLeft();
+          }
+        });
+      }
+
+      function scrollLeft() {
+        $quote.animate({ left: 0 }, 1000);
+      }
+
+      scrollRight();
+    });
+  </script>
+
+</body>
+</html>

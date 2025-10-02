@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array Operations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+     
+    }
+    input, button {
+      margin: 5px;
+      padding: 8px;
+    }
+    #output {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Array Manipulation</h2>
+  <input type="number" id="inputValue" placeholder="Enter a number">
+  <br>
+  <button onclick="addAtEnd()">Add at End</button>
+  <button onclick="addAtStart()">Add at Start</button>
+  <button onclick="deleteFromEnd()">Delete from End</button>
+  <button onclick="deleteFromStart()">Delete from Start</button>
+  <button onclick="displayOdd()">Display Odd Numbers</button>
+  <button onclick="displayEven()">Display Even Numbers</button>
+
+  <div id="output"></div>
+
+  <script>
+    let numbers = [];
+
+    function getInput() {
+      return parseInt(document.getElementById("inputValue").value);
+    }
+
+    function updateOutput(content) {
+      document.getElementById("output").innerHTML = content;
+    }
+
+    function addAtEnd() {
+      let value = getInput();
+      if (!isNaN(value)) {
+        numbers.push(value);
+        updateOutput("Array: " + numbers.join(", "));
+      }
+    }
+
+    function addAtStart() {
+      let value = getInput();
+      if (!isNaN(value)) {
+        numbers.unshift(value);
+        updateOutput("Array: " + numbers.join(", "));
+      }
+    }
+
+    function deleteFromEnd() {
+      numbers.pop();
+      updateOutput("Array: " + numbers.join(", "));
+    }
+
+    function deleteFromStart() {
+      numbers.shift();
+      updateOutput("Array: " + numbers.join(", "));
+    }
+
+    function displayOdd() {
+      let odd = numbers.filter(num => num % 2 !== 0);
+      updateOutput("Odd Numbers: " + odd.join(", "));
+    }
+
+    function displayEven() {
+      let even = numbers.filter(num => num % 2 === 0);
+      updateOutput("Even Numbers: " + even.join(", "));
+    }
+  </script>
+</body>
+</html>

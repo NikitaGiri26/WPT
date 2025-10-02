@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <h2>New User Registration</h2>
+    <form onsubmit="return validatePassword()">
+        <label>Create Username:</label>
+        <input type="text" name="username" id="uid" placeholder="Enter your username" required><br>
+
+        <label>Enter Email-id:</label>
+        <input type="email" name="eid" id="eid" placeholder="Enter your email address" required><br>
+
+        <label>Password:</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required><br>
+
+        <label>Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter your password" required ><br>
+
+    
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validatePassword() {
+            const pw = document.getElementById("password").value;
+            const cpw = document.getElementById("confirm_password").value;
+            if (pw !== cpw) {
+                alert("Passwords do not match!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>

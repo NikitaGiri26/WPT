@@ -1,0 +1,45 @@
+<!--  2) Perform the form validations as shown in Lecture
+  for name and age 
+  and display error message if it not valid  -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Form</title>
+</head>
+<body>
+  <h2>Student Registration</h2>
+  <form id="studentForm" onsubmit="return validateForm()">
+    <label>Student Name:</label>
+    <input type="text" id="name"><br><br>
+
+    <label>Student Age:</label>
+    <input type="number" id="age"><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <p id="errorMsg" style="color:red;"></p>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const age = parseInt(document.getElementById("age").value);
+      const errorMsg = document.getElementById("errorMsg");
+
+      if (name === "") {
+        errorMsg.textContent = "Error: Name must be given.";
+        return false;
+      }
+
+      if (isNaN(age) || age <= 10) {
+        errorMsg.textContent = "Error: Age must be more than 10.";
+        return false;
+      }
+
+      errorMsg.textContent = ""; // Clear error if all is good
+      alert("Form submitted successfully!");
+      return true;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #fff;
+  color: #000;
+}
+
+
+h1 {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 2em;
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  width: 200px;
+}
+
+
+li {
+  margin: 10px 0;
+}
+
+
+a {
+  display: block;
+  padding: 8px;
+  background: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+
+a:hover {
+  background: #0056b3;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ad Fade Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #adBox {
+      display: none;
+      width: 300px;
+      padding: 20px;
+      background-color: #ffeb3b;
+      border: 2px solid #f57c00;
+      font-family: 'Verdana', sans-serif;
+      font-size: 18px;
+      color: #333;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    #disappearBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #f57c00;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #disappearBtn:hover {
+      background-color: #e65100;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="adBox">
+   Limited Time Offer! Get 50% off on all products. Shop now!
+    <br>
+    <button id="disappearBtn">Disappear</button>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $('#adBox').fadeIn(1000); // Fade in the ad on page load
+
+      $('#disappearBtn').on('click', function () {
+        $('#adBox').fadeOut(1000); // Fade out the ad on button click
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+Hello! This is the content from the text file.
+You can load and display it using JavaScript Promises.

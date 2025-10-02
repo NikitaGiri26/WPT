@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Slide Ad</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #adBox {
+      display: none;
+      width: 300px;
+      padding: 20px;
+      background-color: #c8e6c9;
+      border: 2px solid #388e3c;
+      font-family: 'Arial', sans-serif;
+      font-size: 18px;
+      color: #2e7d32;
+      margin-top: 20px;
+    }
+
+    button {
+      margin: 10px 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="showAd">Show Ad</button>
+  <button id="hideAd">Hide Ad</button>
+
+  <div id="adBox">
+    🌟 Special Offer: Get 30% off on all courses this week!
+  </div>
+
+  <script>
+    $('#showAd').on('click', function () {
+      $('#adBox').slideDown('slow');
+    });
+
+    $('#hideAd').on('click', function () {
+      $('#adBox').slideUp('slow');
+    });
+  </script>
+
+</body>
+</html>

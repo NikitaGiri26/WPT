@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>jQuery Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+  <h2 id="heading">Hello, jQuery!</h2>
+  <button id="hideBtn">Hide Text</button>
+  <button id="showBtn">Show Text</button>
+
+  <script>
+    $(document).ready(function () {
+      $("#hideBtn").click(function () {
+        $("#heading").hide();
+      });
+
+      $("#showBtn").click(function () {
+        $("#heading").show();
+      });
+    });
+  </script>
+
+</body>
+
+</html>

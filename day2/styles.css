@@ -1,0 +1,47 @@
+
+input {
+    color: #1a1a1a;
+    background-color: #e0f7fa;
+    font-style: italic;
+    border: 2px solid #0077b6;
+}
+
+p {
+    color: #4a4a4a;
+    background-color: #fce4ec;
+    font-style: normal;
+    border: 1px dashed #c2185b;
+    padding: 10px;
+}
+
+select {
+    color: #ffffff;
+    background-color: #6a1b9a;
+    font-style: oblique;
+    border: 2px dotted #4a148c;
+}
+
+
+.moderate {
+    color: #2e7d32;
+    background-color: #c8e6c9;
+    font-style: normal;
+    border: 3px solid #388e3c;
+    padding: 10px;
+}
+
+.gaudy {
+    color: #ffeb3b;
+    background-color: #d50000;
+    font-style: italic;
+    border: 4px double #ff9800;
+    padding: 10px;
+}
+
+#id1 {
+    color: #0d47a1;
+    background-color: #bbdefb;
+    font-style: oblique;
+    border: 5px groove #1e88e5;
+    padding: 15px;
+}

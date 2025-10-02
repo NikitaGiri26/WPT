@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multiplication Table Generator</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    td, th {
+      border: 1px solid black;
+      padding: 8px 12px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Multiplication Table Generator</h2>
+
+  <label>Number: <input type="number" id="num" /></label><br><br>
+  <label>From: <input type="number" id="from" /></label><br><br>
+  <label>To: <input type="number" id="to" /></label><br><br>
+  <button id="showTable">Show Table</button>
+
+  <div id="tableContainer"></div>
+
+  <script>
+    $('#showTable').on('click', function () {
+      const num = parseInt($('#num').val());
+      const from = parseInt($('#from').val());
+      const to = parseInt($('#to').val());
+
+      if (isNaN(num) || isNaN(from) || isNaN(to) || from > to) {
+        $('#tableContainer').html('<p>Please enter valid numbers and ensure "from" is less than or equal to "to".</p>');
+        return;
+      }
+
+      let tableHtml = '<table><tr><th>Expression</th><th>Result</th></tr>';
+      for (let i = from; i <= to; i++) {
+        tableHtml += `<tr><td>${num} × ${i}</td><td>${num * i}</td></tr>`;
+      }
+      tableHtml += '</table>';
+
+      $('#tableContainer').html(tableHtml);
+    });
+  </script>
+
+</body>
+</html>

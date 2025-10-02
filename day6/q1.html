@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Data Entry</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    input { margin: 5px; }
+    table { border-collapse: collapse; margin-top: 20px; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    .error { color: red; margin-top: 10px; }
+    button { margin: 5px; }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Employee Details</h2>
+  <input type="text" id="firstName" placeholder="First Name">
+  <input type="text" id="lastName" placeholder="Last Name">
+  <input type="email" id="email" placeholder="Email">
+  <input type="date" id="dob">
+  <button onclick="addEmployee()">Add Employee</button>
+
+  <div id="errorMsg" class="error"></div>
+
+  <table id="employeeTable">
+    <thead>
+      <tr>
+        <th>First Name</th><th>Last Name</th><th>Email</th><th>Date of Birth</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    function addEmployee() {
+      const firstName = document.getElementById("firstName").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const dob = document.getElementById("dob").value;
+
+      const errorMsg = document.getElementById("errorMsg");
+      errorMsg.textContent = "";
+
+      if (!firstName || !lastName || !email || !dob) {
+        errorMsg.textContent = "All fields are required!";
+        return;
+      }
+
+      const tableBody = document.getElementById("employeeTable").getElementsByTagName("tbody")[0];
+      const newRow = tableBody.insertRow();
+
+      newRow.insertCell(0).textContent = firstName;
+      newRow.insertCell(1).textContent = lastName;
+      newRow.insertCell(2).textContent = email;
+      newRow.insertCell(3).textContent = dob;
+
+      const actionsCell = newRow.insertCell(4);
+      actionsCell.innerHTML = `
+        <button onclick="editRow(this)">Edit</button>
+        <button onclick="deleteRow(this)">Delete</button>
+      `;
+
+      // Clear input fields
+      document.getElementById("firstName").value = "";
+      document.getElementById("lastName").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("dob").value = "";
+    }
+
+    function deleteRow(btn) {
+      const row = btn.parentNode.parentNode;
+      row.remove();
+    }
+
+    function editRow(btn) {
+      const row = btn.parentNode.parentNode;
+      const cells = row.getElementsByTagName("td");
+
+      document.getElementById("firstName").value = cells[0].textContent;
+      document.getElementById("lastName").value = cells[1].textContent;
+      document.getElementById("email").value = cells[2].textContent;
+      document.getElementById("dob").value = cells[3].textContent;
+
+      row.remove(); 
+    }
+  </script>
+
+</body>
+</html>

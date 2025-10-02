@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Data Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .error {
+      color: red;
+      margin-top: 5px;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Employee Details</h2>
+  <form id="employeeForm">
+    <label>First Name: <input type="text" id="firstName" /></label><br><br>
+    <label>Last Name: <input type="text" id="lastName" /></label><br><br>
+    <label>Email: <input type="email" id="email" /></label><br><br>
+    <label>Date of Birth: <input type="date" id="dob" /></label><br><br>
+    <button type="button" onclick="submitData()">Submit</button>
+    <div id="errorMsg" class="error"></div>
+  </form>
+
+  <div id="tableContainer"></div>
+
+  <script>
+    function submitData() {
+      const firstName = document.getElementById("firstName").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const dob = document.getElementById("dob").value;
+
+      const errorMsg = document.getElementById("errorMsg");
+      const tableContainer = document.getElementById("tableContainer");
+
+      // Clear previous messages
+      errorMsg.textContent = "";
+      tableContainer.innerHTML = "";
+
+      // Validation
+      if (!firstName || !lastName || !email || !dob) {
+        errorMsg.textContent = "All fields are required!";
+        return;
+      }
+
+      // Display table
+      const tableHTML = `
+        <table>
+          <tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Date of Birth</th></tr>
+          <tr>
+            <td>${firstName}</td>
+            <td>${lastName}</td>
+            <td>${email}</td>
+            <td>${dob}</td>
+          </tr>
+        </table>
+      `;
+      tableContainer.innerHTML = tableHTML;
+    }
+  </script>
+
+</body>
+</html>

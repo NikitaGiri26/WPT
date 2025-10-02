@@ -1,0 +1,13 @@
+/* Default style */
+#heading {
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+/* Class to be added/removed/toggled */
+.highlight {
+  color: white;
+  background-color: crimson;
+  padding: 10px;
+  border-radius: 5px;
+}

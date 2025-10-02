@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery AJAX Demo</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <h2>Using .load()</h2>
+  <button id="loadBtn">Load HTML Content</button>
+  <div id="content"></div>
+
+  <h2>Using $.get()</h2>
+  <button id="getBtn">Get Text Data</button>
+  <div id="data"></div>
+
+  <script>
+    // .load() example
+    $("#loadBtn").click(function() {
+      $("#content").load("example.html");
+    });
+
+    // $.get() example
+    $("#getBtn").click(function() {
+      $.get("data.txt", function(response) {
+        $("#data").text(response);
+      });
+    });
+  </script>
+
+</body>
+</html>

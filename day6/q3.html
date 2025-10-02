@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click Counter</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    button { padding: 10px 20px; font-size: 16px; }
+    button.disabled {
+      background-color: #ccc;
+      color: #666;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    p { font-size: 18px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <button id="clickBtn">Click Me</button>
+  <p id="clickCount">You clicked 0 times.</p>
+
+  <script>
+    let count = 0;
+    const button = document.getElementById("clickBtn");
+    const display = document.getElementById("clickCount");
+
+    button.addEventListener("click", function() {
+      count++;
+      display.textContent = `You clicked ${count} time${count > 1 ? 's' : ''}.`;
+
+      if (count >= 10) {
+        button.classList.add("disabled");
+        button.textContent = "Limit Reached";
+      }
+    });
+  </script>
+
+</body>
+</html>

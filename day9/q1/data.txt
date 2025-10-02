@@ -1,0 +1,3 @@
+
+Hello! This is the content from the text file.
+You can load any kind of plain text using AJAX.

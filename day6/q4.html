@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator with Callback</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        input,
+        select,
+        button {
+            margin: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Simple Calculator</h2>
+
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <select id="operation">
+        <option value="add">Addition</option>
+        <option value="sub">Subtraction</option>
+        <option value="mul">Multiplication</option>
+        <option value="div">Division</option>
+    </select>
+    <button onclick="performCalculation()">Calculate</button>
+
+    <div id="result"></div>
+
+    <script>
+
+        function display(output) {
+            document.getElementById("result").textContent = "Result: " + output;
+        }
+
+
+        function addition(n1, n2, callback) {
+            const result = n1 + n2;
+            callback(result);
+        }
+
+        function subtraction(n1, n2, callback) {
+            const result = n1 - n2;
+            callback(result);
+        }
+
+        function multiply(n1, n2, callback) {
+            const result = n1 * n2;
+            callback(result);
+        }
+
+        function division(n1, n2, callback) {
+            if (n2 === 0) {
+                callback("Error: Division by zero");
+            } else {
+                const result = n1 / n2;
+                callback(result);
+            }
+        }
+
+        function calculate(n1, n2, operationCallback) {
+            operationCallback(n1, n2, display);
+        }
+
+        function performCalculation() {
+            const n1 = parseFloat(document.getElementById("num1").value);
+            const n2 = parseFloat(document.getElementById("num2").value);
+            const op = document.getElementById("operation").value;
+
+            if (isNaN(n1) || isNaN(n2)) {
+                display("Please enter valid numbers.");
+                return;
+            }
+
+            switch (op) {
+                case "add":
+                    calculate(n1, n2, addition);
+                    break;
+                case "sub":
+                    calculate(n1, n2, subtraction);
+                    break;
+                case "mul":
+                    calculate(n1, n2, multiply);
+                    break;
+                case "div":
+                    calculate(n1, n2, division);
+                    break;
+                default:
+                    display("Invalid operation selected.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

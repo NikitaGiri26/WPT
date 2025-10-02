@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Timer Demo</title>
+</head>
+<body>
+  <h1>JavaScript Timer Functions</h1>
+
+  <button onclick="startInterval()">Start Interval</button>
+  <button onclick="stopInterval()">Stop Interval</button>
+  <button onclick="startTimeout()">Start Timeout</button>
+
+  <p id="output"></p>
+
+  <script>
+    let intervalId;
+
+    function startInterval() {
+      let count = 0;
+      intervalId = setInterval(() => {
+        document.getElementById("output").innerText = "Interval count: " + (++count);
+        if (count === 5) {
+          clearInterval(intervalId);
+          document.getElementById("output").innerText += " (Stopped)";
+        }
+      }, 1000);
+    }
+
+    function stopInterval() {
+      clearInterval(intervalId);
+      document.getElementById("output").innerText = "Interval manually stopped.";
+    }
+
+    function startTimeout() {
+      setTimeout(() => {
+        document.getElementById("output").innerText = "Timeout triggered after 3 seconds!";
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
