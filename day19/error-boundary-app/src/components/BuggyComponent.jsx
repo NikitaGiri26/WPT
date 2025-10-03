@@ -16,3 +16,4 @@ const BuggyComponent = () => {
 };
 
 export default BuggyComponent;
+
